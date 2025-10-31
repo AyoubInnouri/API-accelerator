@@ -56,6 +56,7 @@ A client can:
     "arguments": { "city": "Paris" }
   }
 }
+```
 
 ---
 
