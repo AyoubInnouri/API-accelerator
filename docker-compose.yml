@@ -1,0 +1,22 @@
+version: "3.8"
+
+services:
+  vectorizer:
+    build: ./vectorizer
+    container_name: vectorizer
+    ports:
+      - "8001:8001"
+    volumes:
+      - ./vectorizer/data:/app/data
+    env_file:
+      - .env
+
+  analyzer:
+    build: ./analyzer
+    container_name: analyzer
+    ports:
+      - "8000:8000"
+    depends_on:
+      - vectorizer
+    env_file:
+      - .env
